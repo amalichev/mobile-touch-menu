@@ -1,5 +1,5 @@
 # Mobile Touch Menu
-Menu with Vanilla JS for mobile
+
 ###### Demo: https://amalichev.github.io/
 
 
@@ -37,6 +37,8 @@ new MobileTouchMenu(options)
 #### ES6
 ```
 import MobileSwipeMenu from 'mobile-touch-menu';
+import 'mobile-touch-menu/mobile-touch-menu.css';
+
 new MobileTouchMenu('#menu', {
     width: '280px',
     direction: 'left',
