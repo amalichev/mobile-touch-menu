@@ -2,9 +2,6 @@
 
 ###### Demo: https://amalichev.github.io/
 
-
-## Instruction
-
 ### Installation
 ```
 npm install mobile-touch-menu --save
