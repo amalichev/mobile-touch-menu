@@ -1,24 +1,13 @@
-class MobileTouchMenu {
-    params = null;
+function MobileTouchMenu(params) {
+    this.params = params;
 
-    $mobileTouchMenu = document.querySelector('.mobile-touch-menu');
-    $mobileTouchMenuBackdrop = document.querySelector('.mobile-touch-menu-backdrop');
-    $mobileTouchMenuToggler = document.querySelectorAll('.mobile-touch-menu-toggler');
+    this.$mobileTouchMenu = document.querySelector('.mobile-touch-menu');
+    this.$mobileTouchMenuBackdrop = document.querySelector('.mobile-touch-menu-backdrop');
+    this.$mobileTouchMenuToggler = document.querySelectorAll('.mobile-touch-menu-toggler');
 
-    constructor(params) {
-        this.$mobileTouchMenu.dataset.direction = params && params.direction ? params.direction : 'left';
+    this.$mobileTouchMenu.dataset.direction = params && params.direction ? params.direction : 'left';
 
-        this.createBackdrop();
-
-        this.setParams(params);
-        this.setStyles(params);
-
-        this.handleToggler();
-        this.handleBackdrop();
-        this.handleSwipe();
-    }
-
-    createBackdrop() {
+    this.createBackdrop = function() {
         this.$mobileTouchMenuBackdrop = document.createElement('div');
 
         this.$mobileTouchMenuBackdrop.classList.add('mobile-touch-menu-backdrop');
@@ -26,7 +15,7 @@ class MobileTouchMenu {
         this.$mobileTouchMenu.after(this.$mobileTouchMenuBackdrop);
     }
 
-    handleSwipe() {
+    this.handleSwipe = function() {
         var self = this;
 
         this.$mobileTouchMenu.addEventListener('touchstart', handleTouchStart);
@@ -83,7 +72,7 @@ class MobileTouchMenu {
         }
     }
 
-    handleToggler() {
+    this.handleToggler = function() {
         var self = this;
 
         this.$mobileTouchMenuToggler.forEach(function(toggler) {
@@ -99,7 +88,7 @@ class MobileTouchMenu {
         });
     }
 
-    handleBackdrop() {
+    this.handleBackdrop = function() {
         var self = this;
 
         this.$mobileTouchMenuBackdrop.addEventListener('click', function() {
@@ -107,7 +96,7 @@ class MobileTouchMenu {
         });
     }
 
-    setParams(params) {
+    this.setParams = function(params) {
         var defaultWidth = '280px';
 
         this.params = Object.assign({
@@ -116,7 +105,7 @@ class MobileTouchMenu {
         }, params);
     }
 
-    setStyles() {
+    this.setStyles = function() {
         this.$mobileTouchMenu.style.width = this.params.width;
 
         if ('right' === this.params.direction) {
@@ -127,11 +116,20 @@ class MobileTouchMenu {
         }
     }
 
-    show() {
+    this.show = function() {
         this.$mobileTouchMenu.classList.add('show');
     }
 
-    hide() {
+    this.hide = function() {
         this.$mobileTouchMenu.classList.remove('show');
     }
+
+    this.createBackdrop();
+
+    this.setParams(params);
+    this.setStyles(params);
+
+    this.handleToggler();
+    this.handleBackdrop();
+    this.handleSwipe();
 }
