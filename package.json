@@ -3,9 +3,14 @@
   "version": "1.0.1",
   "description": "",
   "main": "mobile-touch-menu.js",
+  "homepage": "https://github.com/amalichev/mobile-touch-menu",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Artem Malychev",
-  "license": "ISC"
+  "license": "ISC",
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amalichev/mobile-touch-menu.git"
+  }
 }
