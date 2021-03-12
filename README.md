@@ -1,6 +1,6 @@
 # Mobile Touch Menu
 
-###### Demo: https://amalichev.github.io/mobile-touch-menu/
+###### Demo: https://fervent-sammet-c20465.netlify.app/demo.html
 
 ### Installation
 ```

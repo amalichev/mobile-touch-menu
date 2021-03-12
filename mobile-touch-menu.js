@@ -87,14 +87,14 @@ class MobileTouchMenu {
         var self = this;
 
         this.$mobileTouchMenuToggler.forEach(function(toggler) {
-            toggler.addEventListener('click', function() {
+            toggler.addEventListener('click', function(e) {
+                e.preventDefault();
+
                 if (self.$mobileTouchMenu.classList.contains('show')) {
                     self.hide();
                 } else {
                     self.show();
                 }
-
-                return false;
             });
         });
     }
