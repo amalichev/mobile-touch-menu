@@ -1,6 +1,6 @@
 # Mobile Touch Menu
 
-###### Demo: https://amalichev.github.io/
+###### Demo: https://amalichev.github.io/mobile-touch-menu/
 
 ### Installation
 ```
