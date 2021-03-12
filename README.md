@@ -34,19 +34,6 @@ new MobileTouchMenu(options)
 
 ### Example
 
-#### ES6
-```
-import MobileSwipeMenu from 'mobile-touch-menu';
-import 'mobile-touch-menu/mobile-touch-menu.css';
-
-new MobileTouchMenu('#menu', {
-    width: '280px',
-    direction: 'left',
-    swipeDistance: 120
-});
-```
-
-#### OR
 ```
 <link rel="stylesheet" href="mobile-touch-menu.css">
 ...
