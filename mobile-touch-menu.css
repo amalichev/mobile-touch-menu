@@ -1,0 +1,32 @@
+.mobile-touch-menu {
+    position: fixed;
+    width: 280px;
+    height: 100%;
+    top: 0;
+    left: -280px;
+    background-color: white;
+    transition: all .3s ease;
+    z-index: 1000;
+}
+
+.mobile-touch-menu[data-direction="left"].show {
+    left: 0 !important;
+}
+
+.mobile-touch-menu[data-direction="right"].show {
+    right: 0 !important;
+}
+
+.mobile-touch-menu-backdrop {
+    position: fixed;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .25);
+    z-index: 999;
+}
+
+.mobile-touch-menu.show + .mobile-touch-menu-backdrop {
+    height: 100%;
+}
