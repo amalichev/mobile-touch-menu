@@ -106,9 +106,9 @@ var MobileTouchMenu = function (params) {
 
         if ('right' === this.params.direction) {
             this.$mobileTouchMenu.style.left = 'auto';
-            this.$mobileTouchMenu.style.right = '-' + this.$mobileTouchMenu.style.width;
+            this.$mobileTouchMenu.style.right = '0';
         } else {
-            this.$mobileTouchMenu.style.left = '-' + this.$mobileTouchMenu.style.width;
+            this.$mobileTouchMenu.style.left = '0';
         }
     }
 
