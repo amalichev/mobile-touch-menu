@@ -21,7 +21,7 @@ new MobileTouchMenu(options)
 | ---               | ---       | ---       | ---                              |
 | `direction`       | string    | left      | operating mode (right, left)     |
 | `width`           | string    | 280px     | menu width (with px or %)        |
-| `swipeDistance`   | number    | 200       | swipe distance to close the menu |
+| `swipeDistance`   | number    | 120       | swipe distance to close the menu |
 
 ### Methods
 | Name              | Description           |

@@ -17,7 +17,7 @@ var MobileTouchMenu = function (params) {
             x2 = null, y2 = null,
             xDiff = null,
             yDiff = null,
-            swipeDistance = this.params.swipeDistance || 200;
+            swipeDistance = this.params.swipeDistance || 120;
 
         function handleTouchStart(event) {
             var firstTouch = event.touches[0];
