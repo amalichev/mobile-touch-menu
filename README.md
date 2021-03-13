@@ -13,8 +13,8 @@ yarn add mobile-touch-menu
 
 ### Using
 ```
-require('mobile-touch-menu');
-require('mobile-touch-menu/mobile-touch-menu.css');
+import MobileTouchMenu from 'mobile-touch-menu';
+import 'mobile-touch-menu/mobile-touch-menu.css';
 
 new MobileTouchMenu(options)
 ```

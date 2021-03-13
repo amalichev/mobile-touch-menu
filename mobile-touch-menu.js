@@ -1,17 +1,8 @@
-function MobileTouchMenu(params) {
-    this.params = params;
-
-    this.$mobileTouchMenu = document.querySelector('.mobile-touch-menu');
-    this.$mobileTouchMenuBackdrop = document.querySelector('.mobile-touch-menu-backdrop');
-    this.$mobileTouchMenuToggler = document.querySelectorAll('.mobile-touch-menu-toggler');
-
-    this.$mobileTouchMenu.dataset.direction = params && params.direction ? params.direction : 'left';
+var MobileTouchMenu = function (params) {
 
     this.createBackdrop = function() {
         this.$mobileTouchMenuBackdrop = document.createElement('div');
-
         this.$mobileTouchMenuBackdrop.classList.add('mobile-touch-menu-backdrop');
-
         this.$mobileTouchMenu.after(this.$mobileTouchMenuBackdrop);
     }
 
@@ -100,8 +91,8 @@ function MobileTouchMenu(params) {
         var defaultWidth = '280px';
 
         this.params = Object.assign({
-            width: this.$mobileTouchMenu.dataset.width || defaultWidth,
-            direction: this.$mobileTouchMenu.dataset.direction,
+            width: this.$mobileTouchMenu && this.$mobileTouchMenu.dataset.width || defaultWidth,
+            direction: this.$mobileTouchMenu && this.$mobileTouchMenu.dataset.direction,
         }, params);
     }
 
@@ -112,7 +103,7 @@ function MobileTouchMenu(params) {
             this.$mobileTouchMenu.style.left = 'auto';
             this.$mobileTouchMenu.style.right = '-' + this.$mobileTouchMenu.style.width;
         } else {
-             this.$mobileTouchMenu.style.left = '-' + this.$mobileTouchMenu.style.width;
+            this.$mobileTouchMenu.style.left = '-' + this.$mobileTouchMenu.style.width;
         }
     }
 
@@ -124,12 +115,29 @@ function MobileTouchMenu(params) {
         this.$mobileTouchMenu.classList.remove('show');
     }
 
-    this.createBackdrop();
+    this.$mobileTouchMenu = document.querySelector('.mobile-touch-menu');
 
-    this.setParams(params);
-    this.setStyles(params);
+    if (this.$mobileTouchMenu) {
+        this.params = params;
 
-    this.handleToggler();
-    this.handleBackdrop();
-    this.handleSwipe();
+        this.$mobileTouchMenuBackdrop = document.querySelector('.mobile-touch-menu-backdrop');
+        this.$mobileTouchMenuToggler = document.querySelectorAll('.mobile-touch-menu-toggler');
+
+        this.$mobileTouchMenu.dataset.direction = params && params.direction
+            ? params.direction
+            : 'left';
+
+        this.createBackdrop();
+
+        this.setParams(params);
+        this.setStyles(params);
+
+        this.handleToggler();
+        this.handleBackdrop();
+        this.handleSwipe();
+    }
+}
+
+if ('undefined' !== typeof module) {
+    module.exports = MobileTouchMenu;
 }
