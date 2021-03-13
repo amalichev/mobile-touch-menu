@@ -17,11 +17,12 @@ new MobileTouchMenu(options)
 ```
 
 ### Options
-| Name              | Type      | Default   | Description                      |
-| ---               | ---       | ---       | ---                              |
-| `direction`       | string    | left      | operating mode (right, left)     |
-| `width`           | string    | 280px     | menu width (with px or %)        |
-| `swipeDistance`   | number    | 120       | swipe distance to close the menu |
+| Name                 | Type      | Default   | Description                      |
+| ---                  | ---       | ---       | ---                              |
+| `direction`          | string    | left      | operating mode (right, left)     |
+| `width`              | string    | 280px     | menu width (with px or %)        |
+| `swipeDistance`      | number    | 120       | swipe distance to close the menu |
+| `transitionDuration` | number    | 300       | how long the animation will run  |
 
 ### Methods
 | Name              | Description           |
@@ -54,8 +55,9 @@ new MobileTouchMenu(options)
 <script>
     var mobileTouchMenu = new MobileSwipeMenu({
         width: '280px',
-        direction: 'left',
-        swipeDistance: 120
+        direction: 'right',
+        swipeDistance: 120,
+        transitionDuration: 500
     });
     document.getElementById('openMenu').addEventListener('click', function () {
         mobileTouchMenu.show();
