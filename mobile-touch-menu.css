@@ -17,6 +17,7 @@
 }
 
 .mobile-touch-menu-backdrop {
+    display: none;
     position: fixed;
     width: 100%;
     height: 0;

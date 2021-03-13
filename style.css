@@ -29,7 +29,7 @@ li {
 .mobile-touch-menu__nav {
     height: 100%;
     padding: 30px;
-    /*overflow-y: auto;*/
+    overflow-y: auto;
 }
 
 .mobile-touch-menu__links {
