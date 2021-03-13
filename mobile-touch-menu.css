@@ -5,7 +5,7 @@
     top: 0;
     left: -280px;
     background-color: white;
-    /*transition: all .3s ease;*/
+    transition: all .3s ease;
     z-index: 1000;
 }
 

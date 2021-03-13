@@ -17,7 +17,7 @@ var MobileTouchMenu = function (params) {
             x2 = null, y2 = null,
             xDiff = null,
             yDiff = null,
-            swipeDistance = this.params.swipeDistance || 120;
+            swipeDistance = this.params.swipeDistance || 200;
 
         function handleTouchStart(event) {
             var firstTouch = event.touches[0];
@@ -27,6 +27,7 @@ var MobileTouchMenu = function (params) {
         }
 
         function handleTouchEnd(event) {
+            self.$mobileTouchMenu.style.transition = 'all .3s ease';
             self.$mobileTouchMenu.style.transform = 'translateX(0)';
         }
 
@@ -44,18 +45,22 @@ var MobileTouchMenu = function (params) {
             if (Math.abs(xDiff) > Math.abs(yDiff)) {
                 if ('right' === self.params.direction) {
                     if (xDiff > 0) {
+                        self.$mobileTouchMenu.style.transition = 'none';
                         self.$mobileTouchMenu.style.transform = 'translateX(' + xDiff + 'px)';
                     }
 
                     if (xDiff > swipeDistance) {
+                        self.$mobileTouchMenu.style.transition = 'all .3s ease';
                         self.hide();
                     }
                 } else if ('right' !== self.params.direction) {
                     if (xDiff < 0) {
+                        self.$mobileTouchMenu.style.transition = 'none';
                         self.$mobileTouchMenu.style.transform = 'translateX(' + xDiff + 'px)';
                     }
 
                     if (xDiff < -swipeDistance) {
+                        self.$mobileTouchMenu.style.transition = 'all .3s ease';
                         self.hide();
                     }
                 }
