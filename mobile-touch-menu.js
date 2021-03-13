@@ -116,7 +116,7 @@ var MobileTouchMenu = function (params) {
         var self = this;
         var startValue = this.params.transitionDuration + 'ms';
         var endValue = '0ms';
-        var notations = ['webkitTransition', 'MozTransition', 'msTransition', 'OTransition', 'transition'];
+        var notations = ['webkitTransitionDuration', 'MozTransitionDuration', 'msTransitionDuration', 'OTransitionDuration', 'transitionDuration'];
 
         for (notation of notations) {
             this.$mobileTouchMenu.style[notation] = startValue;
