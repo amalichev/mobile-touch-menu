@@ -40,6 +40,9 @@ var MobileTouchMenu = function (params) {
                 } else {
                     self.setAnimation();
                 }
+            } else {
+                self.$mobileTouchMenu.style.transform = 'translateX(0)';
+                self.setAnimation();
             }
         }
 
@@ -111,20 +114,31 @@ var MobileTouchMenu = function (params) {
 
     this.setAnimation = function() {
         var self = this;
+        var startValue = this.params.transitionDuration + 'ms';
+        var endValue = '0ms';
+        var notations = ['webkitTransition', 'MozTransition', 'msTransition', 'OTransition', 'transition'];
 
-        this.$mobileTouchMenu.style.transitionDuration = this.params.transitionDuration + 'ms';
+        for (notation of notations) {
+            this.$mobileTouchMenu.style[notation] = startValue;
+        }
 
         setTimeout(function() {
-            self.$mobileTouchMenu.style.transitionDuration = '0ms';
+            for (notation of notations) {
+                self.$mobileTouchMenu.style[notation] = endValue;
+            }
         }, this.params.transitionDuration);
     }
 
     this.show = function() {
+        document.body.style.overflow = 'hidden';
+
         this.$mobileTouchMenu.classList.add('show');
         this.setAnimation();
     }
 
     this.hide = function() {
+        document.body.style.overflow = 'visible';
+
         this.$mobileTouchMenu.classList.remove('show');
         this.setAnimation();
     }
