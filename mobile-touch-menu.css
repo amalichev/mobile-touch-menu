@@ -7,6 +7,7 @@
     transform: translateX(-280px);
     background-color: white;
     z-index: 1000;
+    user-select: none;
 }
 
 .mobile-touch-menu[data-direction="right"] {
