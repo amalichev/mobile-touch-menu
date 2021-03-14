@@ -13,7 +13,11 @@ yarn add mobile-touch-menu
 
 ### Using
 ```
-new MobileTouchMenu(options)
+<button class="mobile-touch-menu-toggler">...</button>
+
+<nav class="mobile-touch-menu">...</nav>
+
+<script>new MobileTouchMenu(options)</script>
 ```
 
 ### Options
