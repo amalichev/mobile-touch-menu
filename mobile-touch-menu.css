@@ -9,21 +9,10 @@
     z-index: 1000;
 }
 
-.mobile-touch-menu.show {
-    transform: translateX(0);
-}
-
-.mobile-touch-menu[data-direction="left"].show {
-    left: 0 !important;
-}
-
 .mobile-touch-menu[data-direction="right"] {
+    left: auto;
+    right: 0;
     transform: translateX(280px);
-}
-
-.mobile-touch-menu[data-direction="right"].show {
-    right: 0 !important;
-    transform: translateX(0);
 }
 
 .mobile-touch-menu-backdrop {

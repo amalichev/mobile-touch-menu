@@ -33,11 +33,10 @@ var MobileTouchMenu = function (params) {
             }
 
             if (Math.abs(xDiff) > Math.abs(yDiff)) {
-                self.$mobileTouchMenu.style.transform = 'translateX(0)';
-
                 if (isRightDirection && xDiff > swipeDistance || !isRightDirection && xDiff < -swipeDistance) {
                     self.hide();
                 } else {
+                    self.$mobileTouchMenu.style.transform = 'translateX(0)';
                     self.setAnimation();
                 }
             } else {
@@ -102,13 +101,17 @@ var MobileTouchMenu = function (params) {
     }
 
     this.setStyles = function() {
+        var isRightDirection = 'right' === this.params.direction;
+
         this.$mobileTouchMenu.style.width = this.params.width;
 
-        if ('right' === this.params.direction) {
+        if (isRightDirection) {
             this.$mobileTouchMenu.style.left = 'auto';
             this.$mobileTouchMenu.style.right = '0';
+            this.$mobileTouchMenu.style.transform = 'translateX(' + this.params.width + ')';
         } else {
             this.$mobileTouchMenu.style.left = '0';
+            this.$mobileTouchMenu.style.transform = 'translateX(-' + this.params.width + ')';
         }
     }
 
@@ -116,16 +119,11 @@ var MobileTouchMenu = function (params) {
         var self = this;
         var startValue = this.params.transitionDuration + 'ms';
         var endValue = '0ms';
-        var notations = ['webkitTransitionDuration', 'MozTransitionDuration', 'msTransitionDuration', 'OTransitionDuration', 'transitionDuration'];
 
-        for (notation of notations) {
-            this.$mobileTouchMenu.style[notation] = startValue;
-        }
+        this.$mobileTouchMenu.style.transitionDuration = startValue;
 
         setTimeout(function() {
-            for (notation of notations) {
-                self.$mobileTouchMenu.style[notation] = endValue;
-            }
+            self.$mobileTouchMenu.style.transitionDuration = endValue;
         }, this.params.transitionDuration);
     }
 
@@ -133,13 +131,17 @@ var MobileTouchMenu = function (params) {
         document.body.style.overflow = 'hidden';
 
         this.$mobileTouchMenu.classList.add('show');
+        this.$mobileTouchMenu.style.transform = 'translateX(0)';
         this.setAnimation();
     }
 
     this.hide = function() {
+        var directionPrefix = 'right' === this.params.direction ? '' : '-';
+
         document.body.style.overflow = 'visible';
 
         this.$mobileTouchMenu.classList.remove('show');
+        this.$mobileTouchMenu.style.transform = 'translateX(' + directionPrefix + this.params.width + ')';
         this.setAnimation();
     }
 
@@ -151,14 +153,12 @@ var MobileTouchMenu = function (params) {
         this.$mobileTouchMenuBackdrop = document.querySelector('.mobile-touch-menu-backdrop');
         this.$mobileTouchMenuToggler = document.querySelectorAll('.mobile-touch-menu-toggler');
 
-        this.$mobileTouchMenu.dataset.direction = params && params.direction
-            ? params.direction
-            : 'left';
-
         this.createBackdrop();
 
         this.setParams(params);
         this.setStyles(params);
+
+        this.$mobileTouchMenu.dataset.direction = params && params.direction ? params.direction : 'left';
 
         this.handleToggler();
         this.handleBackdrop();

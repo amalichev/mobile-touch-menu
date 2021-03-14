@@ -53,7 +53,7 @@ new MobileTouchMenu(options)
 ...
 <script src="js/mobile-touch-menu.js"></script>
 <script>
-    var mobileTouchMenu = new MobileSwipeMenu({
+    var mobileTouchMenu = new MobileTouchMenu({
         width: '280px',
         direction: 'right',
         swipeDistance: 120,
@@ -73,7 +73,7 @@ new MobileTouchMenu(options)
 import MobileTouchMenu from 'mobile-touch-menu';
 import 'mobile-touch-menu/mobile-touch-menu.css';
 
-new MobileSwipeMenu({
+new MobileTouchMenu({
     width: '280px',
     direction: 'left',
     swipeDistance: 120
